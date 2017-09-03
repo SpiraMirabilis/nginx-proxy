@@ -335,6 +335,13 @@ If you are using multiple hostnames for a single container (e.g. `VIRTUAL_HOST=e
 If you want most of your virtual hosts to use a default single `location` block configuration and then override on a few specific ones, add those settings to the `/etc/nginx/vhost.d/default_location` file. This file
 will be used on any virtual host which does not have a `/etc/nginx/vhost.d/{VIRTUAL_HOST}_location` file associated with it.
 
+#### Per-VIRTUAL_HOST upstream replacement
+
+If for one reason or another you want to disable the automatic upstream discovery, or change it somehow you can use  `/etc/nginx/vhost.d/{VIRTUAL_HOST}_upsteeam` file which will completely replace the upstream nginx block. Example contents:
+
+server 172.22.1.1:8000;
+
+
 ### Contributing
 
 Before submitting pull requests or issues, please check github to make sure an existing issue or pull request is not already open.
